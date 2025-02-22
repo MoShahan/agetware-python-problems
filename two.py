@@ -5,11 +5,11 @@ def main():
     number = input("Enter your floating point number: ")
     integerPart = number.split(".")[0]
 
-    if len(integerPart) < 4:
+    if len(integerPart) < 4:  # if number is less than 1000
         print(number)
         return
     else:
-        toggleComma = False
+        toggleComma = False  # to add comma alternatively
         decimalPart = ""
         if "." in number:
             decimalPart = number.split(".")[1]
@@ -19,7 +19,12 @@ def main():
             toggleComma = not toggleComma
 
         print(
-            "Result:", res[::-1].strip(",") + "," + integerPart[-3:] + "." + decimalPart
+            "Result:",
+            res[::-1].strip(",")
+            + ","
+            + integerPart[-3:]
+            + ("." if decimalPart else "")
+            + decimalPart,
         )
 
 
